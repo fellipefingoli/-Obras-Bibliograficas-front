@@ -1,0 +1,43 @@
+<mat-card>
+  <mat-card-title>Autores</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Numero de Autores</mat-label>
+      <input 
+        matInput
+        name="authorsNumber" 
+        type="number" 
+        placeholder="Ex: 5" 
+        [(ngModel)]="authorsNumber"
+        (ngModelChange)="changeAuthors($event)"
+      >
+    </mat-form-field>
+    <br>
+    <div class="authors-container">
+      <div *ngFor="let author of authors">
+        <mat-form-field >
+          <mat-label>Autor</mat-label>
+          <input matInput type="text" placeholder="Ex: José Saramago" [(ngModel)]="author.name">
+        </mat-form-field>
+        <br>
+      </div>
+    </div>
+    <div class="authors-container">
+      <div *ngFor="let authorCreated of authorsCreated">
+        <mat-form-field >
+          <mat-label>Autor</mat-label>
+          <input matInput type="text" disabled [(ngModel)]="authorCreated.abnt_name">
+        </mat-form-field>
+      </div>
+    </div>
+    <br>
+    <button
+      mat-flat-button 
+      color="primary"
+      *ngIf="authorsNumber > 0"
+      (click)="sendAuthors()"
+    >
+      Enviar
+    </button>
+  </mat-card-content>
+</mat-card>
