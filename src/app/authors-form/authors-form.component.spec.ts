@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthorsFormComponent } from './authors-form.component';
 
 describe('AuthorsFormComponent', () => {
@@ -8,6 +8,7 @@ describe('AuthorsFormComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ],
       declarations: [ AuthorsFormComponent ]
     })
     .compileComponents();
